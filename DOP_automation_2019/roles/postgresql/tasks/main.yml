@@ -1,0 +1,71 @@
+- name: Install Packages
+  apt: 
+    pkg: 
+    - gnupg2
+    - libpq-dev
+    - python-psycopg2
+
+- name: Add Apt signing key
+  apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+  
+- name: Transfert postgre
+  apt_repository:
+    repo: deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main
+    state: present
+
+- name: Update Cache
+  apt:
+    update_cache: yes
+    upgrade: full
+
+- name: Installation 
+  apt:
+    pkg:
+    - postgresql-12
+    - postgresql-client-12
+
+- name: Transfert schema.sql
+  copy:
+    src: schema.sql
+    dest: /root/schema.sql
+    
+- name: Transfert pg_hba.conf
+  copy: 
+    src: pg_hba.conf
+    dest: /etc/postgresql/12/main/
+
+- name: Transfert postgresql.conf
+  copy:
+    src: postgresql.conf
+    dest: /etc/postgresql/12/main/
+    
+- name: Restarting services
+  service:
+    name: postgresql
+    state: restarted
+    enabled: true
+    
+- name: Creating database
+  postgresql_db:
+    name: paul
+
+- name: Creating User
+  postgresql_user:
+    db: paul
+    name: paul
+    state: present
+    password: "{{ item }}"
+  with_items: "{{ password }}"
+  
+- name: Creating Query
+  postgresql_query:
+    db: paul
+    path_to_script: /root/schema.sql
+
+- name: Start service
+  service:
+    name: postgresql
+    state: started
+    enabled: true

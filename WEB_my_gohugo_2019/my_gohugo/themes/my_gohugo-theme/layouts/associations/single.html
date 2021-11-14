@@ -1,0 +1,57 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<div class="container">
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-sm">
+    	<img class="img-fluid" src="http://localhost:1313/{{ .Params.Photos }}" style="width: 400px; height: 400px;">
+    </div>
+    <div class="col-sm">
+<h4 class="card-title"> {{ .Title }} </h4>
+<h5 class="card-title2"> {{ .Params.Description }}</h5>
+<h4>Place</h4>
+<h5 class="card-title2" style="margin-bottom: 5%;"> {{ .Params.address }}</h5>
+
+<h4> Linked Events :</h4>
+ {{range where .Site.RegularPages "Params.association" "==" .Title }}
+  {{if (time .Params.when).After now}}
+
+    <h5><a href="{{ .Permalink  }}">{{ .Title }}</a></h5>
+
+  {{end}}
+ {{end}}
+
+ <button style="margin: 1% 0% 1%;" class="btn btn-secondary" onclick="associationpasted()">Show Archived Events</button>
+ 
+                    <div id="associationpasted2" style="display:none;">
+                        {{range where .Site.RegularPages "Params.association" "==" .Title }}
+                        {{if (time .Params.when).Before now}}
+                        <h5><a href="{{ .Permalink  }}">{{ .Title }}</a></h5>
+                        {{end}}
+                        {{end}}
+                    </div>
+ 
+                    <script>
+                        function associationpasted() {
+                            var x = document.getElementById("associationpasted2");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+                    </script>
+
+
+
+    </div>
+</div>
+
+<!-- Le "Contenu" de  votre  page  --><!-- Inclusion  du "footer" (fermeture  du tag body , ...)  -->
+{{  partial "footer.html" . }}

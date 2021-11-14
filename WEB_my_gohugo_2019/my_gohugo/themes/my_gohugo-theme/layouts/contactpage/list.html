@@ -1,0 +1,105 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<!--Section: Contact v.1-->
+<section class="section pb-5" style="margin-left: 8%; margin-right: 8%;">
+
+  <!--Section heading-->
+  <h2 class="section-heading h1 pt-4">Contact us</h2>
+  <!--Section description-->
+  <p class="section-description pb-4" style="margin-bottom: 50px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+    amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a
+    pariatur accusamus veniam.</p>
+
+  <div class="row">
+
+    <div class="col-lg-5 mb-4">
+
+      <div class="card">
+
+        <div class="card-body">
+
+          <div class="form-header blue accent-1">
+            <h3><i class="fas fa-envelope"></i> Write to us:</h3>
+          </div>
+
+          <p>We'll write rarely, but with only the best content.</p>
+          <br>
+
+<form action="https://formspree.io/q.tridon@gmail.com" method="POST" />
+          <div class="md-form">
+            <i class="fas fa-user prefix grey-text" style="margin-bottom: 10px;"></i>
+            <input type="text" name="name" id="form-name" class="form-control">
+            <label for="form-name">Your name</label>
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-envelope prefix grey-text" style="margin-bottom: 10px;"></i>
+            <input type="text" name="email" id="form-email" class="form-control">
+            <label for="form-email">Your email</label>
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-tag prefix grey-text" style="margin-bottom: 10px;"></i>
+            <input type="text" name="Subject" id="form-Subject" class="form-control">
+            <label for="form-Subject">Subject</label>
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-pencil-alt prefix grey-text" style="margin-bottom: 10px;"></i>
+            <textarea name="text" id="form-text" class="form-control md-textarea" rows="3">Write here</textarea>
+          </div>
+
+          <div class="text-center mt-4">
+            <button type="Submit" class="btn btn-secondary">Submit</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+</form>
+
+    <div class="col-lg-7">
+
+      <!--Google map-->
+      <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 550px">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10500.30176052862!2d2.3423130614179666!3d48.85677181231794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1dee160761%3A0x7cc70b2b304c91ab!2sPlace%20de%20l&#39;H%C3%B4tel%20de%20Ville%2C%2075004%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1569096280383!5m2!1sen!2sus"
+          frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+
+      <br>
+      <!--Buttons-->
+      <div class="row text-center">
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fas fa-map-marker-alt"></i></a>
+          <p>Place de l'Hôtel de Ville,</p>
+          <p>75004 Paris</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fas fa-phone"></i></a>
+          <p>01 42 76 40 40</p>
+          <p>Mon - Fri, 8:00-19:30</p>
+        </div>
+
+        <div class="col-md-4">
+          <a class="btn-floating blue accent-1"><i class="fas fa-envelope"></i></a>
+          <p>MairiedeParis@contact.fr</p>
+        </div>
+      </div>
+
+    </div>
+    <!--Grid column-->
+
+  </div>
+
+</section>
+<!--Section: Contact v.1-->
+{{  partial "footer.html" . }}

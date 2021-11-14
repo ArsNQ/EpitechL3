@@ -1,0 +1,27 @@
+<p>test works!</p>
+<!-- <div *ngIf="display">test</div>
+{{display}}-->
+
+<h1>you are in chanel {{chanelName}}</h1>
+
+<div>
+  <ul>
+    <li class="chanel" id="chanel1" #chanel1 (click)="selectChanel(chanel1.id)">chanel1</li>
+    <li class="chanel" id="chanel2" #chanel2 (click)="selectChanel(chanel2.id)">chanel2</li>
+    <li class="chanel" id="chanel3" #chanel3 (click)="selectChanel(chanel3.id)">chanel3</li>
+  </ul>
+</div>
+
+<div>
+  <div class="zone-chanels">
+
+  </div>
+  <div class="zone-messages">
+    <div [innerHTML]="htmlContent" id="messages"></div>
+    <div class="zone_saisie">
+      <input id="input" type="text"/>
+      <!--<button (click)="send('bite')">Send</button>-->
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

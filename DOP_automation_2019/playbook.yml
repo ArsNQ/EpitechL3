@@ -1,0 +1,29 @@
+ - name: Install components for all VM's
+   hosts: all
+   roles:
+     - base
+
+ - name: REDIS
+   hosts: redis
+   roles:
+     - redis
+
+ - name: NODEJS
+   hosts: result
+   roles:
+     - result
+
+ - name: POLL
+   hosts: poll
+   roles:
+     - poll
+
+ - name: WORKER
+   hosts: worker
+   roles:
+     - worker
+    
+ - name: POSTGRESQL + CREATE DB + CREATE PAUL
+   hosts: postgres
+   roles:
+     - postgresql

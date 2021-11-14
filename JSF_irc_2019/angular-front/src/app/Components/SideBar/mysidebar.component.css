@@ -1,0 +1,48 @@
+.General{
+  background-color: white;
+  width: 90%;
+  height: 85%;
+  margin-top: 16%;
+  margin-left: 2%;
+  padding: 1%;
+  border-radius: 5px;
+  border: 3px solid #BF4D4D;
+}
+
+.Creation{
+  display: flex;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.cercle {
+  margin: 1%;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #BF4D4D;
+}
+
+.myIcon{
+  color: white;
+  font-size: 40px;
+}
+
+.myText{
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 4%;
+  margin-left: 1%;
+  font-family: 'Anton', sans-serif;
+}
+
+.Channel{
+  margin: 4% 2% 2% 2%;
+  padding: 4%;
+  font-size: 20px;
+  color: white;
+  border-radius: 10px;
+  background-color: #BF4D4D;
+  font-family: 'Anton', sans-serif;
+}

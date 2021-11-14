@@ -1,0 +1,11 @@
+---
+- name: Transfert Worker's
+  copy:
+    src: ./worker.tar
+    dest: /root/
+
+- name: Unzip application
+  unarchive:
+    src: worker.tar
+    dest: ./
+    remote_src: yes

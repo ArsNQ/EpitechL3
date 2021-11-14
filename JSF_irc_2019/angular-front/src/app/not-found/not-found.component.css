@@ -1,0 +1,30 @@
+.myPage {
+  text-align: center;
+}
+.my404 {
+  padding-top: 10%;
+  font-size: 200px;
+  font-family: 'Anton', sans-serif;
+  color: #BF4D4D;
+}
+.myOops {
+  margin-top: 7%;
+  font-size: 40px;
+  font-family: 'Anton', sans-serif;
+  color: black;
+
+}
+.myText {
+  margin-top: 2%;
+  font-size: 40px;
+  font-family: 'Anton', sans-serif;
+  color: #1F284D;
+
+}
+.mySubText {
+  margin-top: 2%;
+  font-size: 30px;
+  font-family: 'Anton', sans-serif;
+  color: black;
+
+}

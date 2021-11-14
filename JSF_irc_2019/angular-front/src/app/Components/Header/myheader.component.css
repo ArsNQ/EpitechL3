@@ -1,0 +1,40 @@
+.my_header{
+  padding-bottom: 0.5%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+  position: relative;
+  height: 10%;
+}
+.img_header {
+  background-color: white;
+  width: 17%;
+}
+.myLogout{
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.myIcon{
+  font-size: 65px;
+  width: 1em;
+  height: 1em;
+  color: #BF4D4D;
+  padding-top: 1%;
+  padding-bottom: 8.5%;
+}
+.myText{
+  font-size: 40px;
+  color: #BF4D4D;
+  font-family: 'Anton', sans-serif;
+  margin-right: 5%;
+}
+
+.myLogout:hover{
+  cursor:pointer;
+}
+
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/associations/</loc>
+    <lastmod>2019-09-25T19:11:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/associations/giletjaune/</loc>
+    <lastmod>2019-09-25T19:11:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-09-25T19:11:03+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/associations/peta/</loc>
+    <lastmod>2019-09-22T15:43:50+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/associations/l214/</loc>
+    <lastmod>2019-09-22T15:43:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/search/index.json</loc>
+    <lastmod>2018-09-04T15:32:54+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/associations/ascp/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/associations/fifa/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+  </url>
+  
+</urlset>

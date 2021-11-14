@@ -1,0 +1,61 @@
+<!DOCTYPE  html>
+<html  lang="en">
+
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+	{{  partial "head.html" . }}
+
+<body>
+
+	<!-- Inclusion  du "header" (navbar , ...)  -->
+	{{  partial "header.html" . }}
+	<!-- Inclusion  du "menu" (navbar , ...)  -->
+	{{  partial "menu.html" . }}
+	<!-- Le "Contenu" de  votre  page  -->
+	<h1>INDEX</h1>
+	
+	<div style="margin: 0% 10% 7%;"><p>Bienvenue sur le site de la mairie de Paris, vous pourrez retrouvez ici ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
+
+	<div style="text-align: center;">
+
+	{{ range first 10 (where .Site.RegularPages "Section" "events") }}
+			{{if (time .Params.when).After now}}
+				{{if eq .Params.important true}}
+
+		{{if eq .Params.draft true }}
+
+		  <div class="card" style="width:400px; display: inline-block; margin-left: 3%; margin-right: 3%; margin-bottom: 3%;">
+		    <img class="img-fluid" src="http://localhost:1313/{{ .Params.Photos }}" style="width: 400px; height: 400px">
+		    <div class="card-body">
+		      <h4 class="card-title" style="text-align: center;"> {{ .Title }}</h4>
+		      <h5 class="card-title2" style="text-align: center;"> {{ dateFormat "Monday, Jan 2, 2006" .Params.When }}</h5>
+		      <p class="card-title2" style="text-align: center;"> {{ .Params.Label }}</p>
+		      <div class="seeprofil" style="text-align: center;"><a class="btn btn-secondary" style="text-align: center; margin-top: 10px;">See Event</a></div>
+		    </div>
+		  </div>
+		{{ end }}
+
+		{{if eq .Params.draft false }}
+
+		<a href="{{ .Permalink }}"></a>
+
+		  <div class="card" style="width:400px; display: inline-block; margin-left: 3%; margin-right: 3%; margin-bottom: 3%;">
+		    <img class="img-fluid" src="http://localhost:1313/{{ .Params.Photos }}" style="width: 400px; height: 400px">
+		    <div class="card-body">
+		      <h4 class="card-title" style="text-align: center;"> {{ .Title }}</h4>
+		      <h5 class="card-title2" style="text-align: center;"> {{ dateFormat "Monday, Jan 2, 2006" .Params.When }}</h5>
+		      <p class="card-title2" style="text-align: center;"> {{ .Params.Label }}</p>
+		      <div class="seeprofil" style="text-align: center;"><a href="{{ .Permalink }}" class="btn btn-secondary" style="text-align: center; margin-top: 10px;">See Event</a></div>
+		    </div>
+		  </div>
+		{{ end }}
+
+				{{ end }}
+			{{ end }}
+		{{ end }}
+</div>
+<br>
+
+	<!-- Effectue  une  boucle  sur  TOUTES  les  pages du site  -->
+	<!-- Inclusion  du "footer" (fermeture  du tag body , ...)  -->
+
+	{{  partial "footer.html" . }}

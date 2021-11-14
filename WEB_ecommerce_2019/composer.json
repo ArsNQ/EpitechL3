@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/orm-pack": "^1.0",
+        "api-platform/api-pack": "^1.2"
+    }
+}

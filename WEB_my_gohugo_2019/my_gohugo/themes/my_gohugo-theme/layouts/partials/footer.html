@@ -1,0 +1,120 @@
+
+    <footer class="page-footer font-small indigo">
+
+      <!-- Footer Links -->
+      <div class="container">
+
+        <!-- Grid row-->
+        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+        <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="/events/">All Events</a>
+            </h6>
+          </div>
+
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="/contactpage/">Contact</a>
+            </h6>
+          </div>
+
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="/associations/">Associations</a>
+            </h6>
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <hr class="rgba-white-light" style="margin: 0 15%;">
+
+        <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+          <div class="text footer" style="margin: 20px">
+            <p style="margin-bottom: 50px;">Bienvenue sur le site de la mairie de Paris, vous pourrez retrouvez ici ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        </div>
+        <!-- Grid row-->
+        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+      </br>
+
+      </div>
+      <div class="footer-copyright" style="margin-bottom: 10px;">© 2019 Copyright: Mairie de Paris
+      </div>
+      
+    </footer>
+
+<script>
+let vuesearch = new Vue({
+    el: '#search', // div ID
+    data: {
+        txt: '', // will contain the text written by user
+        timeoutID: 0, // used to detect when the user stopped typing
+        showresult: false, // show the result dropdown, or not
+        result: {}, // results to display, as JSON : {[ {"url":"", "title":""},..] }
+        bdd: [] // will contain the full JSON file created by HUGO
+        },
+    mounted: function() {
+        // loading the full JSON to 'bdd'
+        axios.get('{{ with .Site.GetPage "/search.md" }}{{ .Permalink }}{{ end }}')
+        .then(function (response) {
+            vuesearch.bdd = response.data.results;
+            })
+        .catch(function (error) {
+            console.log(error);
+            });
+        },
+    methods: {
+        close: function() {
+            // Close the dropdown when the input search loses focus
+            // with a 300ms delay to let time for the click on link to work
+            setTimeout(function() {
+                vuesearch.showresult = false;
+                vuesearch.txt = '';
+                }, 300);
+            },
+        search: function() {
+            // we will search when the user stopped typing for 500ms
+            clearTimeout(this.timeoutID);
+            this.timeoutID = setTimeout(this.dosearch, 500);
+            },
+        dosearch: function() {
+            // do the search in the 'bdd'
+            this.result = []; // clear previous result
+            let words = this.txt.split(' '); // split typed text with spaces
+            let words2 = []; // words that will be searched
+            words.forEach(function(element) { // to skip empty words, if multiple spaces typed (i.e "a  b c")
+                if(element) {words2.push(element);}
+                });
+            let r;
+            let resultmp;
+            words2.forEach(function(e) { // for each word
+                r = vuesearch.bdd.filter((element) => {
+                  let title = element.title.toLowerCase();
+                  let search = e.toLowerCase();
+                  let content = element.content.toLowerCase();
+                  if (title.search(search) !== -1)
+                    return true;
+                  else if (content.search(search) !== -1)
+                    return true;
+                })
+                if(vuesearch.result.length===0) {vuesearch.result = r.slice(); return;}
+                resultmp = [];
+                vuesearch.result.forEach(function(all1) {
+                    r.forEach(function(all2) { // we want AND for words
+                        if(all1.url===all2.url) {resultmp.push(all1);}
+                        });
+                    });
+                vuesearch.result = resultmp.slice();
+                });
+            this.result = this.result.slice(0, 10); // 10 results max
+            this.showresult = (this.result.length>0); // show results if we have one or more
+            } // dosearch
+        } // methods
+    }); // Vue
+</script>
+
+  </body>
+</html>

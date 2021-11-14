@@ -1,0 +1,5 @@
+/ecommercefront/node_modules
+/ecommercefront/.idea
+ecommerceback/.env
+ecommerceback/composer.lock
+.idea

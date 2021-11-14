@@ -1,0 +1,8 @@
+.idea
+dashboard-back/.git
+dashboard-front/.git
+nodes_modules/
+package-lock.json
+.env
+dist/
+vim.exe.stackdump

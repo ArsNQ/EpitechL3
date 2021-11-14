@@ -1,0 +1,8 @@
+<div class="my_header">
+  <img class="img_header" src="../../../assets/img/logo_horizontal.png"/>
+  <div class="myLogout" *ngIf="logout; else block" (click)="logoutFunction()">
+    <mat-icon class="myIcon">power_settings_new</mat-icon><p class="myText">LOGOUT</p>
+  </div>
+  <div #block class="myLogout"></div>
+</div>
+

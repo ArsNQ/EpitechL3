@@ -1,0 +1,8 @@
+- name: Install redis
+  apt:
+    name: redis
+
+- name: Check Redis conf
+  copy:
+    src: redis.conf
+    dest: /etc/redis/redis.conf

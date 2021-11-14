@@ -1,0 +1,18 @@
+.myPageSize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3% 5% 5% 5%;
+}
+.profile_title {
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.subTitle {
+    font-weight: bold;
+}
+
+.profile_info_line {
+    margin-bottom: 2%;
+}

@@ -1,0 +1,12 @@
+.card {
+    width: 18rem;
+    margin-top: 20px;
+}
+
+.price {
+    text-align: center;
+}
+
+.button {
+    width: 100%;
+}

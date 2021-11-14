@@ -1,0 +1,5 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "my_gohugo"
+theme = "my_gohugo-theme"
+themesDir = "./themes"

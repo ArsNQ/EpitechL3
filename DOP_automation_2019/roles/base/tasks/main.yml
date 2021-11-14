@@ -1,0 +1,21 @@
+- name: Update OS (apt-update)
+  apt:
+    update_cache: yes
+    upgrade: full
+- name: Install essential package
+  apt:
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - emacs-nox
+    - git
+    - curl
+    - unzip
+    - zsh
+- name: Set Timezone
+  timezone:
+    name: Europe/Paris
+- name: Set root default for zsh shell
+  user:
+    name: root
+    shell: /usr/bin/zsh

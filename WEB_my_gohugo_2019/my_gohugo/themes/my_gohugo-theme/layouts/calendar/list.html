@@ -1,0 +1,101 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<h1>Event Calendar</h1>
+
+<div style="text-align: center;">
+
+<h2 id="date"></h2>
+
+<div style="padding-bottom: 15px;"><button id="prev" class="btn btn-secondary" style="margin-left: 1%; margin-right: 1%;">Previous</button>
+<button id="next" class="btn btn-secondary" style="margin-left: 1%; margin-right: 1%;">Next</button></div></div>
+
+<div id="calendar" style="height: 800px; margin-left: 3%; margin-right: "></div> 
+
+<script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+<script src="https://uicdn.toast.com/tui.dom/v3.0.0/tui-dom.js"></script>
+<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+<script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+<script>
+    const changeStateDate = (date) => {
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+        ];
+
+
+    let elementDate = document.querySelector('#date');
+
+    const newDate = {
+        month: monthNames[date.getMonth()],
+        year: date.getFullYear()
+    }
+
+    elementDate.innerHTML = `${newDate.month} ${newDate.year}`
+}
+
+    let date= new Date();
+    changeStateDate(date);
+
+    document.querySelector('#prev').addEventListener('click',function(){
+        calendar.prev()
+    date = new Date(date.setMonth(date.getMonth() - 1));
+    changeStateDate(date)
+});
+
+    document.querySelector('#next').addEventListener('click',function(){
+        calendar.next()
+    date = new Date(date.setMonth(date.getMonth() + 1));
+    changeStateDate(date)
+});
+
+</script>
+
+<script>var Calendar = tui.Calendar;
+
+var calendar = new Calendar('#calendar', {
+  defaultView: 'month',
+  taskView: true,
+  template: {
+    monthDayname: function(dayname) {
+      return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+    }
+  }
+});
+</script>
+
+{{ range where .Site.RegularPages "Section" "events" }}
+
+<script>
+
+    calendar.on('clickMore', function (event) {
+        console.log('clickMore', event.date, event.target);
+    });
+
+    calendar.createSchedules([
+        {
+            id: '1',
+            calendarId: '1',
+            title: '{{.Title }}',
+            location: '{{ .URL }}',
+            category: 'time',
+            dueDateClass: '',
+            start: '{{.Params.When }}',
+            end: '{{.Params.When }}'
+        },
+    ]);
+ 
+    calendar.on('clickSchedule', function (e) {
+        var event = e.schedule;
+        window.location.replace(event.location);
+    });
+ 
+</script>
+
+{{ end }}
+
+{{  partial "footer.html" . }}

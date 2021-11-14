@@ -1,0 +1,31 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<h1 class="card-title"> {{ .Title }}</h1>
+
+<div class="container">
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-sm">
+    	<img class="img-fluid" src="http://localhost:1313/{{ .Params.Photos }}" style="width: 400px; height: 400px;">
+    </div>
+    <div class="col-sm" style="">
+
+<h3 style="text-decoration: underline;">Date :</h3>
+<h4 class="card-title2"> {{ dateFormat "Monday, Jan 2, 2006" .Params.When }}</h4>
+<h3 style="text-decoration: underline;">Place :</h3>
+<h4 class="card-title2"> {{ .Params.address }}</h4>
+<h3 style="text-decoration: underline;">Description :</h3>
+<h4 class="card-title2"> {{ .Params.Description }}</h4>
+ 
+    </div>
+</div>
+
+
+<!-- Le "Contenu" de  votre  page  --><!-- Inclusion  du "footer" (fermeture  du tag body , ...)  -->
+{{  partial "footer.html" . }}

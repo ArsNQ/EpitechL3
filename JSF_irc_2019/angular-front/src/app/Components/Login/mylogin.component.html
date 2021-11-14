@@ -1,0 +1,24 @@
+<body class="card">
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+    <div class="imgcontainer">
+      <img src="../../../assets/img/logo_vertical.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div [innerHTML]="myError" class="myError"></div>
+
+    <div class="container">
+      <label for="uname"><b class="text">E-mail</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required formControlName="email">
+
+      <label for="psw"><b class="text">Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required formControlName="password">
+
+      <button type="submit">Login</button>
+      <p class="myOr">or</p>
+      <a routerLink="/chat"><button type="submit">Continue without Login</button></a>
+
+      <p>Don't have an account? <a routerLink="/register" routerLinkActive="active">Sign up</a></p>
+
+    </div>
+  </form>
+</body>

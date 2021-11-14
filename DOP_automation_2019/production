@@ -1,0 +1,14 @@
+[poll]
+poll-1 ansible_host=192.168.56.3
+
+[redis]
+redis-1 ansible_host=192.168.56.4
+
+[postgres]
+postgre-1 ansible_host=192.168.56.5
+
+[worker]
+worker-1 ansible_host=192.168.56.6
+
+[result]
+result-1 ansible_host=192.168.56.7

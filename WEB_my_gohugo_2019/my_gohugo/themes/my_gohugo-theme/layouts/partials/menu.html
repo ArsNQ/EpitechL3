@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+  <ul class="navbar-nav mr-auto">
+  		<li class="nav-item">
+  			<a href="http://localhost:1313/">
+  		<i class="fas fa-home fa-2x" style="color: white; margin-right: 10px;" ></i>
+        </a>
+  		</li>
+  	<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="{{ .Permalink }}" id="navbardrop" data-toggle="dropdown">
+          Events
+        </a>
+        <div class="dropdown-menu">
+  	      <a class="dropdown-item" href="/events/">All events</a>
+  	      <a class="dropdown-item" href="/pastedevents/">Archived Events</a>
+  	      <a class="dropdown-item" href="/futurevents/">Upcoming Events</a>
+        </div>
+      </li>
+
+    <!-- Links -->
+      <li class="nav-item">
+        <a class="nav-link" style="margin: 2px;" href="/associations/">Associations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="margin: 2px;" href="/municipalcouncil/">Municipal Council</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="margin: 2px;" href="/calendar/">Calendar</a>
+      </li>
+    </ul>
+
+    <!-- ASSOCIATION SPOTLIGHT --> <!---->
+    <div class="dropdown" style="margin-right: 2%;">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Spotlight
+      </button>
+      
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div style="margin-left: 15px;">
+        {{ range .Site.RegularPages }}
+          {{ if eq .Type "associations" }}
+            {{ if eq .Params.important true }}
+              <a href="{{ .URL  }}">{{ .Title }}</a></br>
+            {{ end }}
+          {{ end }}
+        {{ end }}</a></div>
+
+      </div>
+    </div>
+    <!-- SEARCH BAR --> <!---->
+    <div class="search" id="search">
+    <input type="text" placeholder="Search site..." v-model="txt" @keyup="search()" @blur="close()" maxlength="50">
+    <div class="search-results" :style="{'display': showresult?'block':'none'}">
+        <a v-for="item in result" :href="item.url">{{ printf "{{ item.title }}" }}</a>
+    </div>
+</div>
+</nav> 

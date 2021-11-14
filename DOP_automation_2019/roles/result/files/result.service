@@ -1,0 +1,9 @@
+[Unit]
+Description=Example systemd service.
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /root/result/server.js
+
+[Install]
+WantedBy=multi-user.target

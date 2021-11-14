@@ -1,0 +1,24 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<h1>{{ humanize .Params.firstNames }} {{ upper .Params.lastName}}</h1>
+
+<div class="container">
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-sm">
+    	<img class="img-fluid" src="http://localhost:1313/{{ .Params.Photos }}" style="width: 400px; height: 400px;">
+    </div>
+    <div class="col-sm">
+<h4> Description :</h4>
+<h5 class="card-title2"> {{ .Params.Description }}</h5>
+    </div>
+</div>
+
+<!-- Le "Contenu" de  votre  page  --><!-- Inclusion  du "footer" (fermeture  du tag body , ...)  -->
+{{  partial "footer.html" . }}

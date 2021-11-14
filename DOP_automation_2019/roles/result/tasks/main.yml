@@ -1,0 +1,43 @@
+- name: Install nodejs & npm
+  apt:
+    pkg:
+    - nodejs
+    - npm
+
+- name: Copy website files
+  copy:
+    src: ./result.tar
+    dest: /root/
+
+- name: Unzip website
+  unarchive:
+    src: ./result.tar
+    dest: ./
+    remote_src: yes
+
+- name: Install dependencies
+  npm:
+    path: /root/result
+
+- name: Transfert website config
+  copy: 
+    src: result.service
+    dest: /etc/systemd/system
+    
+- name: Directory creation
+  file:
+    path: /etc/systemd/system/result.service.d
+    state: directory
+    mode: '0755'
+    
+- name: Copy service.d
+  copy:
+    src: myenv.conf
+    dest: /etc/systemd/system/result.service.d/
+
+- name: start service
+  systemd:
+    daemon_reload: yes
+    state: started
+    name: result
+

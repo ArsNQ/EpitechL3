@@ -1,0 +1,25 @@
+.myPageSize {
+    padding: 2% 5% 5% 5%;
+}
+
+.backOrder{
+    background-color: #1C1C1C;
+    color: #EDEDED;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-size: 25px;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.mySpace{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.myCal {
+    padding-right: 5px;
+}

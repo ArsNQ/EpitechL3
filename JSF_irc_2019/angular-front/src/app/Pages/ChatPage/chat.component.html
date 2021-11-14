@@ -1,0 +1,69 @@
+<app-myheader></app-myheader>
+<mat-drawer-container>
+  <mat-drawer class="myLeft" #sidenavchatbox position="start" mode="side" opened="true">
+    <p class="myTitle">Channels</p>
+    <div class="General">
+      <div class="Creation">
+        <div class="cercle" (click)="addChannel()">
+          <mat-icon class="myIcon">add</mat-icon>
+        </div>
+        <p class="myText">Create your Channel</p>
+      </div>
+      <div *ngFor="let channel of channels">
+        <div *ngIf="channel != 'Channel 1' && channel != 'Channel 2' && channel != 'Channel 3'; else elseBaseChannel" >
+          <div *ngIf="channel === currentRoom; else elseChannel">
+            <div class="Channel">{{channel}}</div>
+            <div (click)="removeChannel(channel)" ><mat-icon>delete</mat-icon></div>
+          </div>
+          <ng-template #elseChannel>
+            <div class="Channel" (click)="selectChanel(channel)">{{channel}}</div>
+            <div (click)="removeChannel(channel)" class="cercle2"><mat-icon class="Trash">delete</mat-icon></div>
+          </ng-template>
+        </div>
+        <ng-template #elseBaseChannel>
+          <div *ngIf="channel === currentRoom; else elseChannel">
+            <div class="Channel">{{channel}}</div>
+          </div>
+          <ng-template #elseChannel>
+            <div class="Channel" (click)="selectChanel(channel)">{{channel}}</div>
+          </ng-template>
+        </ng-template>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <div class="myCore">
+    <button (click)="sidenavchatbox.toggle()">
+      <mat-icon>settings_ethernet</mat-icon>
+    </button>
+    <p class="myCoreTitle">CHATBOX</p>
+  </div>
+  <div class="myPage">
+    <div style="overflow: scroll; height: xyz;" #scrollMe [scrollTop]="scrollMe.scrollHeight" class="zoneChannels" id="messages">
+      <div *ngFor="let message of messages">
+        <div *ngIf="message[3] == 1; else elseMessage">
+          <div class="TitleText"><p class="Pseudo2">{{message[0]}}</p><p>- {{message[2]}}</p></div>
+          <div class="triangle-code"></div>
+          <div class="Message"><p class="CoreMessage">{{message[1]}}</p></div>
+        </div>
+        <ng-template #elseMessage >
+          <div class="TitleText2"><p class="Pseudo2">{{message[0]}}</p><p>- {{message[2]}}</p></div>
+          <div class="triangle-code2"></div>
+          <div class="Message2"><p class="CoreMessage2">{{message[1]}}</p></div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="zoneMessage">
+      <p style="display: flex; align-items: center" class="myText2">Send your messages here</p>
+      <div class="zoneEntry">
+        <input id="input" type="text" class="zoneText"/>
+        <button class="zoneButton" (click)="sendMessage()"><mat-icon class="myIcon">send</mat-icon></button>
+      </div>
+    </div>
+  </div>
+
+  <mat-drawer class="myRight" position="end" mode="side" opened="true">
+    <p class="myTitle">ONLINE</p>
+    <app-myonline></app-myonline>
+  </mat-drawer>
+</mat-drawer-container>

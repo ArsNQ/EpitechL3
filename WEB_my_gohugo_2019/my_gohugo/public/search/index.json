@@ -1,0 +1,36 @@
+
+{ "results": [
+
+
+
+    {
+    "url": "http://example.org/associations/giletjaune/",
+    "title": "GILET JAUNE",
+    "content": ""
+    },
+
+    {
+    "url": "http://example.org/associations/peta/",
+    "title": "PETA",
+    "content": ""
+    },
+
+    {
+    "url": "http://example.org/associations/l214/",
+    "title": "L214",
+    "content": ""
+    },
+
+    {
+    "url": "http://example.org/associations/ascp/",
+    "title": "ACSP",
+    "content": ""
+    },
+
+    {
+    "url": "http://example.org/associations/fifa/",
+    "title": "FIFA",
+    "content": ""
+    }
+
+]}

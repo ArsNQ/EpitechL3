@@ -1,0 +1,19 @@
+.card {
+    width: 18rem;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.price {
+    text-align: center;
+}
+
+.imgCard {
+    padding: 2%;
+    width: 300px;
+    height: 300px;
+}
+
+.button {
+    width: 100%;
+}

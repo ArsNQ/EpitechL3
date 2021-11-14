@@ -1,0 +1,29 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<h1>ASSOCIATIONS</h1>
+
+<div style="text-align: center;">
+  {{ range .Pages }}
+
+  <a href="{{ .Permalink }}"></a>
+
+<div class="card" style="width:400px; display: inline-block; margin-left: 4%; margin-right: 4%; margin-bottom: 4%;">
+  <img class="img-fluid" src="http://localhost:1313/{{ .Params.Photos }}" style="width: 100%; height: 50%">
+  <div class="card-body">
+    <h4 class="card-title" style="text-align: center;"> {{ .Title }}</h4>
+    <p class="card-text" style="margin-bottom: 8%">Domain - {{ .Params.Domain }}</p>
+    <div class="seeprofil" style="text-align: center;"><a href="{{ .Permalink }}" class="btn btn-primary" style="text-align: center;">See Association</a></div>
+  </div>
+</div>
+
+  {{ end }}
+
+</div>
+
+<!-- Le "Contenu" de  votre  page  --><!-- Inclusion  du "footer" (fermeture  du tag body , ...)  -->
+{{  partial "footer.html" . }}

@@ -1,0 +1,7 @@
+.chanel {
+  cursor: pointer;
+}
+
+.chanel:hover {
+  color: blue;
+}

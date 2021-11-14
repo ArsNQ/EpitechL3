@@ -1,0 +1,43 @@
+.myNavContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #1C1C1C;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.myNavItem {
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+    padding-top: 8px;
+    color: #FFFFFF;
+    variant: "light";
+
+}
+
+.myNavItemBut{
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+}
+
+.myNavItemBut>a{
+    color: #ffffff !important;
+}
+
+.myButtonNav {
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+}
+
+.myNavIcons {
+    margin-right: 15px;
+}
+
+.myNavItemLogo {
+    width: 150x;
+    height: 50px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+

@@ -1,0 +1,40 @@
+---
+- name: Install pip
+  apt: pkg=python-pip
+
+- name: Upload Poll's application
+  copy:
+    src: ./poll.tar
+    dest: /root/
+
+- name: Unzip application
+  unarchive:
+    src: poll.tar
+    dest: ./
+    remote_src: yes
+
+- name: Install poll dependencies
+  pip:
+    requirements: /root/poll/requirements.txt
+    
+- name: Upload website config
+  copy: 
+    src: poll.service
+    dest: /etc/systemd/system
+    
+- name: Create a directory if it does not exist
+  file:
+    path: /etc/systemd/system/poll.service.d
+    state: directory
+    mode: '0755'
+
+- name: Copy service.d
+  copy:
+    src: myenv.conf
+    dest: /etc/systemd/system/poll.service.d/
+
+- name: start service
+  systemd:
+    daemon_reload: yes
+    state: started
+    name: poll

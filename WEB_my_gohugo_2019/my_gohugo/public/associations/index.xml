@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Associations on my_gohugo</title>
+    <link>http://example.org/associations/</link>
+    <description>Recent content in Associations on my_gohugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Sep 2019 19:11:03 +0200</lastBuildDate>
+    
+	<atom:link href="http://example.org/associations/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GILET JAUNE</title>
+      <link>http://example.org/associations/giletjaune/</link>
+      <pubDate>Wed, 25 Sep 2019 19:11:03 +0200</pubDate>
+      
+      <guid>http://example.org/associations/giletjaune/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PETA</title>
+      <link>http://example.org/associations/peta/</link>
+      <pubDate>Sun, 22 Sep 2019 15:43:50 +0200</pubDate>
+      
+      <guid>http://example.org/associations/peta/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>L214</title>
+      <link>http://example.org/associations/l214/</link>
+      <pubDate>Sun, 22 Sep 2019 15:43:45 +0200</pubDate>
+      
+      <guid>http://example.org/associations/l214/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ACSP</title>
+      <link>http://example.org/associations/ascp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/associations/ascp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>FIFA</title>
+      <link>http://example.org/associations/fifa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/associations/fifa/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

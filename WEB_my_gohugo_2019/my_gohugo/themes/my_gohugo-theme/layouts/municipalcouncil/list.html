@@ -1,0 +1,73 @@
+<!-- Inclusion  de la "head" (ouverture  du tag body , ...)  -->
+{{  partial "head.html" . }}
+<!-- Inclusion  du "header" (navbar , ...)  -->
+{{  partial "header.html" . }}
+<!-- Inclusion  du "menu" (navbar , ...)  -->
+{{  partial "menu.html" . }}
+
+<h1>Municipal Council</h1>
+
+<a href="http://localhost:1313/presentation/">
+  <h3 style="text-align: center;">Town Hall Presentation</h3>
+</a>
+
+<h2>MAYOR</h2>
+
+<div id ="MAYOR-DIV" style="text-align: center;">
+
+{{ range .Data.Pages}}
+{{ if eq .Params.role "Mayor"}}
+  <div class="card" style="width:300px; display: inline-block; text-align: center;">
+      <img class="card-img-top" src="http://localhost:1313/{{ .Params.Photos }}" alt="Card image"
+          style="width:75%; height: 25%;">
+      <div class="card-body">
+          <h4 class="card-title" style="text-align: center;">{{ .Params.firstNames }} {{ upper .Params.lastName}}</h4>
+          <h6 class="card-text" style="text-align: center;"> {{ .Params.role }} </h6>
+          <div style="text-align: center;"><a href="{{ .URL }}" class="btn btn-primary" style="text-align: center;"> More infos </a>
+          </div>
+      </div>
+  </div><br>
+{{end}}
+{{end}}
+</div>
+
+<h2>ADJOINTS</h2>
+
+<div id ="ADJOINTS-DIV" style="text-align: center;">
+{{ range .Data.Pages}}
+{{ if eq .Params.role "Adjoint"}}
+<div class="card" style="width:300px; display: inline-block; text-align: center; margin-left: 1%; margin-right: 1%;">
+    <img class="card-img-top" src="http://localhost:1313/{{ .Params.Photos }}" alt="Card image"
+        style="width:75%; height: 25%;">
+    <div class="card-body">
+        <h4 class="card-title" style="text-align: center;">{{ .Params.firstNames }} {{ upper .Params.lastName}}</h4>
+        <h6 class="card-text" style="text-align: center;"> {{ .Params.role }} </h6>
+        <div style="text-align: center;"><a href="{{ .URL }}" class="btn btn-primary" style="text-align: center;"> More
+                infos </a>
+        </div>
+    </div>
+</div>
+{{end}}
+{{end}}
+</div>
+
+<h2>DEPUTIES</h2>
+
+<div id ="DEPUTY-DIV" style="text-align: center;">
+{{ range .Data.Pages}}
+{{ if eq .Params.role "Deputy"}}
+<div class="card" style="width:300px; display: inline-block; text-align: center;  margin-left: 1%; margin-right: 1%;">
+    <img class="card-img-top" src="http://localhost:1313/{{ .Params.Photos }}" alt="Card image"
+        style="width:75%; height: 25%;">
+    <div class="card-body">
+        <h4 class="card-title" style="text-align: center;">{{ .Params.firstNames }} {{ upper .Params.lastName}}</h4>
+        <h6 class="card-text" style="text-align: center;"> {{ .Params.role }} </h6>
+        <div style="text-align: center;"><a href="{{ .URL }}" class="btn btn-primary" style="text-align: center;"> More infos </a>
+        </div>
+    </div>
+</div>
+{{end}}
+{{end}}
+</div>
+
+{{  partial "footer.html" . }}
