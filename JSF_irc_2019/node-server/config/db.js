@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const _20027017 = 'mongodb://MartinLepoutre:epitech2019@51.91.254.200:27017/IRC-ml';
+const _20027017 = 'mongodb://xxxxxxxxxxxx@xxx.xxx.xxx.xxx:27017/IRC-ml';
 
 const InitiateMongoServer = async () => {
     try {
