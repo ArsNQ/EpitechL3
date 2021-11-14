@@ -12,7 +12,7 @@ const useStyles = createUseStyles(style);
             <div className={classes.myWidget}>
                 <div style={{ height: '25vh', width: '100%' }}>
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key:'AIzaSyDgQZVYHSjW1aFoON_Z-4w6pcEbEectHTc'}}
+                        bootstrapURLKeys={{ key:'xxxxxxxxxxxxxxx'}}
                         defaultCenter={center}
                         defaultZoom={zoom}
                     >
